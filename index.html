@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Perceptions Essay Guide - MOD008100</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+```
+    :root {
+        --primary: #2c2c2c;
+        --accent: #c0550a;
+        --accent2: #2d7a50;
+        --warn: #b8860b;
+        --danger: #a82020;
+        --light: #f5f0e8;
+        --card: #fffdf8;
+        --text: #1a1a1a;
+        --muted: #5a5a5a;
+        --border: #d6cfc0;
+    }
+
+    body {
+        font-family: 'DM Sans', sans-serif;
+        background: #e8e0d0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 30px 20px;
+    }
+
+    .container {
+        background: var(--light);
+        border-radius: 16px;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        max-width: 960px;
+        width: 100%;
+        overflow: hidden;
+        border: 1px solid var(--border);
+    }
+
+    /* Top bar */
+    .topbar {
+        background: #2c2c2c;
+        padding: 18px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .topbar .module-code {
+        color: #e8a87c;
+        font-weight: 700;
+        font-size: 13px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+    .topbar .module-name {
+        color: #fff;
+        font-family: 'DM Serif Display', serif;
+        font-size: 1.1em;
+    }
+    .topbar .deadline-pill {
+        background: var(--accent);
+        color: white;
+        font-size: 12px;
+        font-weight: 700;
+        padding: 6px 14px;
+        border-radius: 20px;
+        letter-spacing: 0.5px;
+    }
+
+    /* Slide area */
+    .slide-area {
+        padding: 40px 44px 20px;
+    }
+
+    .slide { display: none; animation: fadeUp 0.4s ease; }
+    .slide.active { display: block; }
+
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(16px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+        font-family: 'DM Serif Display', serif;
+        color: var(--primary);
+        font-size: 1.9em;
+        margin-bottom: 6px;
+        line-height: 1.2;
+    }
+    .subtitle {
+        color: var(--muted);
+        font-size: 0.95em;
+        margin-bottom: 24px;
+        border-bottom: 2px solid var(--primary);
+        padding-bottom: 14px;
+    }
+
+    h2 {
+        font-family: 'DM Serif Display', serif;
+        color: var(--primary);
+        font-size: 1.25em;
+        margin: 24px 0 10px;
+    }
+
+    h3 {
+        font-weight: 700;
+        font-size: 0.95em;
+        margin-bottom: 8px;
+        color: var(--text);
+    }
+
+    p { line-height: 1.7; color: var(--text); font-size: 0.95em; }
+
+    ul { margin-left: 20px; }
+    li { margin: 7px 0; line-height: 1.65; font-size: 0.95em; color: var(--text); }
+
+    /* Cards */
+    .card {
+        background: var(--card);
+        border-radius: 10px;
+        padding: 18px 20px;
+        margin: 14px 0;
+        border-left: 5px solid #2c2c2c;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+    .card.accent  { border-left-color: var(--accent); }
+    .card.success { border-left-color: var(--accent2); background: #f0faf5; }
+    .card.warn    { border-left-color: var(--warn);   background: #fdf8ec; }
+    .card.danger  { border-left-color: var(--danger); background: #fdf0ee; }
+    .card.example { border-left-color: #888; background: #f5f2ec; font-style: italic; }
+
+    .badge {
+        display: inline-block;
+        padding: 5px 14px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 700;
+        margin: 4px 4px 4px 0;
+        letter-spacing: 0.5px;
+    }
+    .badge-blue   { background: #2c2c2c; color: #fff; }
+    .badge-orange { background: var(--accent);  color: #fff; }
+    .badge-green  { background: var(--accent2); color: #fff; }
+    .badge-warn   { background: var(--warn);    color: #fff; }
+
+    .word-pill {
+        background: #2c2c2c;
+        color: white;
+        padding: 5px 18px;
+        border-radius: 20px;
+        display: inline-block;
+        font-weight: 700;
+        font-size: 13px;
+        margin: 6px 0 14px;
+        letter-spacing: 0.5px;
+    }
+
+    .highlight { background: #ffe082; padding: 1px 5px; border-radius: 3px; font-weight: 700; }
+
+    table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9em; }
+    th { background: #2c2c2c; color: white; padding: 11px 13px; text-align: left; }
+    td { border: 1px solid #d6cfc0; padding: 10px 13px; vertical-align: top; background: #fffdf8; }
+    tr:nth-child(even) td { background: #f5f0e8; }
+
+    /* Marking rubric colour rows */
+    .mark-excellent td:first-child { background: #d4edda; font-weight: 700; color: #155724; }
+    .mark-good      td:first-child { background: #e2f0d9; font-weight: 700; color: #2d6a1f; }
+    .mark-satisf    td:first-child { background: #fff3cd; font-weight: 700; color: #856404; }
+    .mark-poor      td:first-child { background: #f8d7da; font-weight: 700; color: #721c24; }
+    .mark-excellent td, .mark-good td, .mark-satisf td, .mark-poor td { background: #fffdf8; }
+    tr.mark-excellent:nth-child(even) td, tr.mark-good:nth-child(even) td,
+    tr.mark-satisf:nth-child(even) td, tr.mark-poor:nth-child(even) td { background: #f5f0e8; }
+    .mark-excellent td:first-child, .mark-good td:first-child,
+    .mark-satisf td:first-child, .mark-poor td:first-child { background: inherit; }
+
+    .checklist { list-style: none; margin-left: 0; }
+    .checklist li:before { content: "☐  "; font-size: 1.1em; }
+
+    /* Essay structure timeline */
+    .structure-row {
+        display: flex;
+        gap: 10px;
+        margin: 16px 0;
+        flex-wrap: wrap;
+    }
+    .structure-block {
+        flex: 1;
+        min-width: 130px;
+        background: #fffdf8;
+        border-radius: 10px;
+        padding: 14px;
+        text-align: center;
+        border-top: 4px solid #2c2c2c;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+        border: 1px solid #d6cfc0;
+        border-top: 4px solid #2c2c2c;
+    }
+    .structure-block .sec-title { font-weight: 700; font-size: 0.85em; color: #2c2c2c; }
+    .structure-block .sec-words { font-size: 1.4em; font-weight: 700; color: var(--accent); margin: 6px 0 2px; }
+    .structure-block .sec-desc  { font-size: 0.75em; color: var(--muted); }
+    .structure-block.alt { border-top-color: var(--accent); }
+    .structure-block.alt .sec-title { color: var(--accent); }
+
+    /* Nav */
+    .navigation {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 44px 28px;
+        border-top: 1px solid #d6cfc0;
+    }
+    .nav-btn {
+        background: #2c2c2c;
+        color: white;
+        border: none;
+        padding: 11px 28px;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: 600;
+        font-family: 'DM Sans', sans-serif;
+        transition: all 0.25s;
+    }
+    .nav-btn:hover { background: var(--accent); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
+    .nav-btn:disabled { background: #bbb; cursor: not-allowed; transform: none; box-shadow: none; }
+
+    /* Progress dots */
+    .progress-dots {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        justify-content: center;
+    }
+    .dot {
+        width: 10px; height: 10px;
+        border-radius: 50%;
+        background: #ccc;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    .dot.active { background: #2c2c2c; transform: scale(1.3); }
+
+    .slide-label {
+        font-size: 12px;
+        color: var(--muted);
+        text-align: center;
+        margin-top: 4px;
+    }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media(max-width:600px){ .two-col { grid-template-columns: 1fr; } .structure-row { flex-direction: column; } }
+</style>
+```
+
+</head>
+<body>
+<div class="container">
+
+```
+<!-- TOP BAR -->
+<div class="topbar">
+    <div>
+        <div class="module-code">MOD008100 / ELHUM04</div>
+        <div class="module-name">Social Perceptions — Essay Guide</div>
+    </div>
+    <div class="deadline-pill">⏰ See Moodle for deadline</div>
+</div>
+
+<div class="slide-area">
+
+    <!-- ═══════════════════ SLIDE 1: OVERVIEW ═══════════════════ -->
+    <div class="slide active" id="slide1">
+        <h1>📋 Assessment Overview</h1>
+        <p class="subtitle">Everything you need to know before you start writing</p>
+
+        <div class="card success">
+            <h3>✅ The Task</h3>
+            <p>Write a <strong>1,000-word essay</strong> answering:<br>
+            <span style="font-size:1.1em; font-weight:700; color:var(--primary);">"To what extent is social class a thing of the past?"</span></p>
+        </div>
+
+        <div class="two-col">
+            <div class="card">
+                <h3>📊 Assessment Details</h3>
+                <ul>
+                    <li><strong>Module:</strong> Social Perceptions</li>
+                    <li><strong>Code:</strong> MOD008100 / ELHUM04</li>
+                    <li><strong>Leader:</strong> Lucy Mazur</li>
+                    <li><strong>Weighting:</strong> 50% of module</li>
+                    <li><strong>Graded:</strong> Out of 100 marks</li>
+                    <li><strong>Pass mark:</strong> 40%</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>📝 Submission Format</h3>
+                <ul>
+                    <li>One <strong>Word (.docx)</strong> file</li>
+                    <li>Submit via <strong>TurnitinUK on Moodle</strong></li>
+                    <li>No email submissions accepted</li>
+                    <li>Completed <strong>ARUC cover sheet</strong> included</li>
+                    <li>Deadline: <strong>2pm</strong> (see Moodle)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card warn">
+            <h3>⚠️ Word Count Rules — READ CAREFULLY</h3>
+            <ul>
+                <li>Target: <span class="highlight">1,000 words (±10%)</span> → allowed range: <strong>900–1,100 words</strong></li>
+                <li>Over by more than 19% → <span class="highlight">capped at 40–49 marks</span></li>
+                <li>Under by 20% or more (below 800 words) → <span class="highlight">capped at 39 marks</span></li>
+                <li>Word count <strong>excludes</strong> cover sheet and reference list</li>
+            </ul>
+        </div>
+
+        <div class="card danger">
+            <h3>🚫 Formatting Rules</h3>
+            <ul>
+                <li>Font: <strong>Arial or Times New Roman, size 12</strong></li>
+                <li>Line spacing: <strong>1.5 or 2.0</strong></li>
+                <li><strong>NO subheadings</strong> — essay format only</li>
+                <li><strong>NO personal pronouns</strong> — no "I", "me", "you", "my"</li>
+                <li><strong>NO name</strong> — use Student ID only</li>
+                <li>Student ID in the <strong>header of every page</strong></li>
+                <li>All pages must be <strong>numbered</strong></li>
+                <li>UK spelling throughout (e.g. "colour" not "color")</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>📚 Sources Required</h3>
+            <ul>
+                <li>At least <strong>5 reputable sources</strong> — mostly peer-reviewed or key module texts</li>
+                <li>Harvard referencing in-text AND in reference list</li>
+                <li><strong>No Wikipedia</strong> or GCSE revision sites</li>
+                <li>Unsure about a source? Check with your tutor during the draft period</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ═══════════════════ SLIDE 2: ESSAY STRUCTURE ═══════════════════ -->
+    <div class="slide" id="slide2">
+        <h1>🏗️ Essay Structure at a Glance</h1>
+        <p class="subtitle">No subheadings — paragraph breaks only. Follow this word distribution.</p>
+
+        <div class="structure-row">
+            <div class="structure-block">
+                <div class="sec-title">Cover Sheet</div>
+                <div class="sec-words">0</div>
+                <div class="sec-desc">ARUC sheet + page break</div>
+            </div>
+            <div class="structure-block alt">
+                <div class="sec-title">Introduction</div>
+                <div class="sec-words">~150</div>
+                <div class="sec-desc">Definitions + thesis + perspectives</div>
+            </div>
+            <div class="structure-block alt">
+                <div class="sec-title">Postmodern Argument</div>
+                <div class="sec-words">~150</div>
+                <div class="sec-desc">Class declining; identity shifts</div>
+            </div>
+            <div class="structure-block alt">
+                <div class="sec-title">Perspective 1</div>
+                <div class="sec-words">~300</div>
+                <div class="sec-desc">Theory + evidence + examples</div>
+            </div>
+            <div class="structure-block alt">
+                <div class="sec-title">Perspective 2</div>
+                <div class="sec-words">~300</div>
+                <div class="sec-desc">Contrasting/evaluating theory</div>
+            </div>
+            <div class="structure-block">
+                <div class="sec-title">Conclusion</div>
+                <div class="sec-words">~100</div>
+                <div class="sec-desc">Answer the question directly</div>
+            </div>
+            <div class="structure-block">
+                <div class="sec-title">References</div>
+                <div class="sec-words">0</div>
+                <div class="sec-desc">Harvard list — not counted</div>
+            </div>
+        </div>
+
+        <div class="card warn">
+            <h3>⚠️ The Core Requirement</h3>
+            <p>You <strong>MUST</strong> include:</p>
+            <ul>
+                <li>✔ The <strong>postmodernist argument</strong> (the essay statement comes from this view)</li>
+                <li>✔ At least <strong>TWO other sociological perspectives</strong> from the list below</li>
+                <li>✔ Ideally the two perspectives should <strong>contrast or debate</strong> each other</li>
+            </ul>
+        </div>
+
+        <h2>Choose Your Two Perspectives</h2>
+        <table>
+            <tr><th>Perspective</th><th>Core Argument on Social Class</th><th>Key Theorists to Research</th></tr>
+            <tr>
+                <td><strong>Marxism</strong></td>
+                <td>Class conflict is central; bourgeoisie vs. proletariat; capitalism reproduces inequality</td>
+                <td>Marx, Engels, Gramsci, Bourdieu</td>
+            </tr>
+            <tr>
+                <td><strong>Feminism</strong></td>
+                <td>Class intersects with gender; women face dual oppression; patriarchy reinforces class</td>
+                <td>Walby, hooks, Oakley, Connell</td>
+            </tr>
+            <tr>
+                <td><strong>Labelling Theory</strong></td>
+                <td>Class shapes how people are labelled; labels reproduce disadvantage in education, crime</td>
+                <td>Becker, Lemert, Rosenthal & Jacobson</td>
+            </tr>
+            <tr>
+                <td><strong>Functionalism</strong></td>
+                <td>Social stratification serves a function; inequality motivates achievement; meritocracy possible</td>
+                <td>Parsons, Davis & Moore, Durkheim</td>
+            </tr>
+            <tr>
+                <td><strong>Cultural Theory</strong></td>
+                <td>Cultural capital and taste reinforce class boundaries even if economic class changes</td>
+                <td>Bourdieu, Hall, Bennett</td>
+            </tr>
+        </table>
+
+        <div class="card success">
+            <h3>💡 Suggested Pairing (Good for Evaluation)</h3>
+            <p><strong>Marxism vs Functionalism</strong> — directly oppose each other on whether inequality is harmful or functional. Easy to evaluate one against the other.</p>
+        </div>
+    </div>
+
+    <!-- ═══════════════════ SLIDE 3: WRITING EACH SECTION ═══════════════════ -->
+    <div class="slide" id="slide3">
+        <h1>✍️ Writing Each Section</h1>
+        <p class="subtitle">What to include in every paragraph — structure only, write your own words!</p>
+
+        <h2>Introduction (~150 words)</h2>
+        <div class="card">
+            <h3>Must Include:</h3>
+            <ul>
+                <li>Define <strong>social class</strong> (cite a sociological source)</li>
+                <li>A clear <strong>thesis statement</strong> — your overall argument/answer to the question</li>
+                <li>Name the <strong>two sociological perspectives</strong> you will use</li>
+                <li>Mention key theorists you'll discuss</li>
+            </ul>
+        </div>
+        <div class="card example">
+            <strong>🚫 STRUCTURE ONLY — DO NOT COPY:</strong><br><br>
+            Sentence 1: Define social class using a cited source.<br>
+            Sentence 2: Introduce the debate — is class still relevant today?<br>
+            Sentence 3: State your thesis — "This essay will argue that..."<br>
+            Sentence 4: Signpost — name Postmodernism + your two chosen perspectives.<br>
+            Sentence 5: Briefly name a key theorist from each perspective.<br><br>
+            <strong>⚠️ Write these in YOUR OWN WORDS!</strong>
+        </div>
+
+        <h2>Postmodern Argument (~150 words)</h2>
+        <div class="card">
+            <h3>Must Include:</h3>
+            <ul>
+                <li>Explain postmodernism's claim: identity is no longer defined by class</li>
+                <li>Individuals now base identity on <strong>interests, tastes, cultural influences</strong></li>
+                <li>A <strong>cultural example</strong>: gaming communities, fandoms, sports, arts — groups where class doesn't determine membership</li>
+                <li>Cite postmodern theorists: <strong>Lyotard, Jameson, Baudrillard</strong></li>
+            </ul>
+        </div>
+        <div class="card example">
+            <strong>🚫 STRUCTURE ONLY:</strong><br><br>
+            Sentence 1: Introduce postmodern view — class as an outdated concept.<br>
+            Sentence 2: Explain how identity is now formed (cultural/consumer choices).<br>
+            Sentence 3: Cite a theorist (e.g. Lyotard, Baudrillard) with date and page.<br>
+            Sentence 4: Give a real cultural example (e.g. esports, fandoms).<br>
+            Sentence 5: Explain why this example shows class no longer defines identity.<br><br>
+            <strong>⚠️ Use YOUR own research and examples!</strong>
+        </div>
+
+        <h2>Sociological Perspective 1 (~300 words)</h2>
+        <div class="card">
+            <h3>Must Include:</h3>
+            <ul>
+                <li><strong>Introduce</strong> the perspective and its overall view</li>
+                <li><strong>Explain key arguments</strong> around hierarchical structures (class, gender, ethnicity)</li>
+                <li>Cite <strong>academic texts or journals</strong> — not just websites</li>
+                <li>Provide <strong>real-world examples</strong> (education system, arts, politics, sport) — CITED</li>
+                <li>Link the example back to the theory and the essay question</li>
+            </ul>
+        </div>
+        <div class="card example">
+            <strong>🚫 PARAGRAPH STRUCTURE ONLY:</strong><br><br>
+            Para 1 (~100w): Introduce the perspective. Define core concepts with citations.<br>
+            Para 2 (~100w): Apply to a real-world area (e.g. education). Cite academic source.<br>
+            Para 3 (~100w): Evaluate — how does this perspective answer "is class a thing of the past?"<br><br>
+            <strong>⚠️ Every claim needs a citation. Write YOUR own sentences!</strong>
+        </div>
+
+        <h2>Sociological Perspective 2 (~300 words) — Same Structure</h2>
+        <div class="card success">
+            <h3>Key Difference: Contrast with Perspective 1</h3>
+            <p>This section should <strong>agree with, build on, or challenge</strong> what you argued in Perspective 1. Use linking phrases like:</p>
+            <ul>
+                <li>"In contrast to Marxist theory..."</li>
+                <li>"While Functionalists argue..., Feminists contend..."</li>
+                <li>"Building on this, Cultural theorists suggest..."</li>
+            </ul>
+            <p style="margin-top:10px;"><strong>⚠️ These are example phrases only — rewrite them in your own style!</strong></p>
+        </div>
+
+        <h2>Conclusion (~100 words)</h2>
+        <div class="card">
+            <h3>Must Include:</h3>
+            <ul>
+                <li>Briefly summarise the <strong>three perspectives</strong> discussed</li>
+                <li><strong>Directly answer</strong> the essay question: does social class still exist?</li>
+                <li>Use persuasive, conclusive language — no new ideas</li>
+                <li>No citations needed here (you are summarising your own argument)</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ═══════════════════ SLIDE 4: REFERENCING ═══════════════════ -->
+    <div class="slide" id="slide4">
+        <h1>📚 Harvard Referencing Guide</h1>
+        <p class="subtitle">Referencing is worth 5 marks — errors add up fast. Get it right.</p>
+
+        <div class="card warn">
+            <h3>⚠️ Minimum Requirement</h3>
+            <p>You <strong>must</strong> have at least <span class="highlight">5 reputable sources</span> in your reference list. Aim for 7–10 for higher marks. Use <strong>peer-reviewed journal articles</strong> and original theorists' texts where possible.</p>
+        </div>
+
+        <h2>In-Text Citations</h2>
+        <table>
+            <tr><th>Type</th><th>Format</th><th>Example</th></tr>
+            <tr><td>Paraphrase (1 author)</td><td>Author (Year) or (Author, Year)</td><td>Giddens (2009) argues that… <br>…in society (Giddens, 2009).</td></tr>
+            <tr><td>Paraphrase (2 authors)</td><td>(Author and Author, Year)</td><td>(Davis and Moore, 1945)</td></tr>
+            <tr><td>3+ authors</td><td>(First author et al., Year)</td><td>(Savage et al., 2013)</td></tr>
+            <tr><td>Direct quote</td><td>(Author, Year, p.XX)</td><td>(Bourdieu, 1984, p.56)</td></tr>
+            <tr><td>Website</td><td>(Organisation, Year)</td><td>(ONS, 2023)</td></tr>
+        </table>
+
+        <div class="card danger">
+            <h3>🚫 Critical Citation Rules</h3>
+            <ul>
+                <li>Full stop goes <strong>AFTER</strong> the citation, not before: <br>…in contemporary society (Giddens, 2009)<span class="highlight">.</span> ✅<br>…in contemporary society<span class="highlight">.</span> (Giddens, 2009) ❌</li>
+                <li>Direct quotes <strong>MUST</strong> include a page number: (Marx, 1867, p.23)</li>
+                <li><strong>Do not use Wikipedia</strong> — not a reputable source</li>
+            </ul>
+        </div>
+
+        <h2>Reference List Formats</h2>
+        <div class="card">
+            <h3>📖 Book:</h3>
+            <p>Author, A. and Author, B. (Year) <em>Title of Book</em>. Edition. Place: Publisher.</p>
+            <p style="margin-top:8px; color:var(--muted);">Example: Giddens, A. (2009) <em>Sociology</em>. 6th edn. Cambridge: Polity Press.</p>
+        </div>
+        <div class="card">
+            <h3>📰 Journal Article:</h3>
+            <p>Author, A. (Year) 'Article title', <em>Journal Name</em>, Volume(Issue), pp. start–end.</p>
+            <p style="margin-top:8px; color:var(--muted);">Example: Savage, M. et al. (2013) 'A new model of social class', <em>Sociology</em>, 47(2), pp. 219–250.</p>
+        </div>
+        <div class="card">
+            <h3>🌐 Website:</h3>
+            <p>Author/Organisation (Year) <em>Title of Page</em>. Available at: URL (Accessed: Day Month Year).</p>
+        </div>
+        <div class="card">
+            <h3>Reference List Rules:</h3>
+            <ul>
+                <li><strong>Alphabetical</strong> by author surname</li>
+                <li><strong>Hanging indent</strong> — second line indented</li>
+                <li>Titles of books and journals in <em>italics</em></li>
+                <li>Only include sources you actually cited</li>
+                <li>Do NOT number your references</li>
+                <li>Page break before the reference list</li>
+            </ul>
+        </div>
+
+        <div class="card success">
+            <h3>✅ ARU Harvard Guide</h3>
+            <p>Always check the official guide: <strong>https://library.aru.ac.uk/referencing/harvard.htm</strong></p>
+        </div>
+    </div>
+
+    <!-- ═══════════════════ SLIDE 5: MARKING CRITERIA ═══════════════════ -->
+    <div class="slide" id="slide5">
+        <h1>🎯 Marking Criteria</h1>
+        <p class="subtitle">You are marked on 5 areas — understand what each band requires</p>
+
+        <h2>Area 1: Knowledge & Understanding of Theory (25 marks)</h2>
+        <table>
+            <tr><th>Band</th><th>Marks</th><th>What It Means</th></tr>
+            <tr class="mark-excellent"><td>Above L3 / Excellent</td><td>21–25</td><td>Detailed, accurate, systematic theoretical understanding. Theories well described and evaluated. All contextual examples fully applied with evaluations linked to essay title. Outstanding use of terminology.</td></tr>
+            <tr class="mark-good"><td>Very Good</td><td>10–15</td><td>Accurate understanding of key theories, appropriately applied. May be some inconsistencies in evaluations or examples. Theory not always clearly linked to the essay title.</td></tr>
+            <tr class="mark-satisf"><td>Satisfactory</td><td>5–10</td><td>Theory included (Postmodernism + 2 others) but application/understanding limited. Only partial or generalised contextual examples provided.</td></tr>
+            <tr class="mark-poor"><td>Poor</td><td>0–5</td><td>Missing postmodernist argument, or fewer than 2 other theories, or no contextual examples. Consistent errors in theory description.</td></tr>
+        </table>
+
+        <h2>Area 2: Research, Reading & Source Use (25 marks)</h2>
+        <table>
+            <tr><th>Band</th><th>Marks</th><th>What It Means</th></tr>
+            <tr class="mark-excellent"><td>Above L3 / Excellent</td><td>21–25</td><td>Uses original theoretical texts (Lyotard, Becker etc.), academic journals, broad independent reading. Consistent use of academic sources for both theory and examples. Nuanced research.</td></tr>
+            <tr class="mark-good"><td>Very Good</td><td>10–15</td><td>Appropriate sources for theories and examples but may not show independent research. Harvard mostly correct but may have minor errors (missing page numbers, year errors).</td></tr>
+            <tr class="mark-satisf"><td>Satisfactory</td><td>5–10</td><td>Some appropriate sources but also unreliable ones. Referencing attempted but errors present. At least 5 sources in reference list.</td></tr>
+            <tr class="mark-poor"><td>Poor</td><td>0–5</td><td>Fewer than 5 sources. Uses Wikipedia/GCSE sites consistently. Minimal or no citations. No reference list.</td></tr>
+        </table>
+
+        <h2>Area 3: Clarity of Expression (25 marks)</h2>
+        <table>
+            <tr><th>Band</th><th>Marks</th><th>What It Means</th></tr>
+            <tr class="mark-excellent"><td>Excellent</td><td>15–25</td><td>Fluent writing, accurate grammar and spelling. UK spelling consistently used. Correct use of terminology. Full stops after citations. No contractions.</td></tr>
+            <tr class="mark-good"><td>Very Good</td><td>10–15</td><td>Language mostly fluent. Mainly accurate but occasional terminology errors or spelling slips. Rare citation punctuation errors.</td></tr>
+            <tr class="mark-satisf"><td>Satisfactory</td><td>5–10</td><td>Meaning clear but language not always fluent. Grammar errors. Contractions used occasionally. US spelling.</td></tr>
+            <tr class="mark-poor"><td>Poor</td><td>0–5</td><td>Basic/colloquial language. Consistent grammar errors. First-person writing (I, me, my). Contractions throughout.</td></tr>
+        </table>
+
+        <h2>Area 4: Coherence & Organisation (20 marks)</h2>
+        <table>
+            <tr><th>Band</th><th>Marks</th><th>What It Means</th></tr>
+            <tr class="mark-excellent"><td>Excellent</td><td>15–20</td><td>Cohesive, fluent structure at L3 standard. Introduction sets up the essay clearly with thesis. Conclusion answers the question directly. Consistent formatting throughout.</td></tr>
+            <tr class="mark-good"><td>Very Good</td><td>10–15</td><td>Clear intro, main body and conclusion engaging with essay title. May have marginal clarity issues in intro/conclusion or occasional formatting slip.</td></tr>
+            <tr class="mark-satisf"><td>Satisfactory</td><td>5–10</td><td>Most instructions followed. Introduction OR conclusion present (at least one). General understanding shown despite paragraphing issues.</td></tr>
+            <tr class="mark-poor"><td>Poor</td><td>0–5</td><td>No response to essay title, no examples, more than 20% under word count, or no introduction and no conclusion.</td></tr>
+        </table>
+
+        <h2>Area 5: Referencing / Harvard Style (5 marks)</h2>
+        <table>
+            <tr><th>Marks</th><th>Description</th></tr>
+            <tr class="mark-excellent"><td>5</td><td>No errors — paraphrasing and direct quotations (with page numbers) all correct. Reference list has no errors.</td></tr>
+            <tr class="mark-good"><td>3–4</td><td>Consistent Harvard approach but minor errors in citations or reference list (e.g. missing italics, marginal format errors).</td></tr>
+            <tr class="mark-satisf"><td>2</td><td>Some referencing but citations largely missing or reference list incomplete (missing URLs, dates, titles).</td></tr>
+            <tr class="mark-poor"><td>1</td><td>Poor application, or wrong system used (APA, OSCOLA), or very little resemblance to Harvard.</td></tr>
+        </table>
+    </div>
+
+    <!-- ═══════════════════ SLIDE 6: FINAL CHECKLIST ═══════════════════ -->
+    <div class="slide" id="slide6">
+        <h1>✅ Final Submission Checklist</h1>
+        <p class="subtitle">Go through every item before you click submit</p>
+
+        <div class="two-col">
+            <div class="card success">
+                <h3>📄 Document Setup</h3>
+                <ul class="checklist">
+                    <li>ARUC cover sheet completed (ID not name)</li>
+                    <li>Page break after cover sheet</li>
+                    <li>Student ID in header of every page</li>
+                    <li>All pages numbered</li>
+                    <li>Font: Arial or Times New Roman, size 12</li>
+                    <li>Line spacing: 1.5 or 2.0</li>
+                    <li>Page break before reference list</li>
+                </ul>
+            </div>
+            <div class="card success">
+                <h3>📝 Content</h3>
+                <ul class="checklist">
+                    <li>Word count: 900–1,100 words (content only)</li>
+                    <li>Word count stated on document</li>
+                    <li>No subheadings used</li>
+                    <li>No personal pronouns (I, me, you)</li>
+                    <li>UK spelling throughout</li>
+                    <li>Formal, academic language</li>
+                    <li>Thesis statement in introduction</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>📚 Theory & Content</h3>
+                <ul class="checklist">
+                    <li>Postmodern argument discussed</li>
+                    <li>Cultural example for postmodernism</li>
+                    <li>Sociological Perspective 1 (300 words)</li>
+                    <li>Sociological Perspective 2 (300 words)</li>
+                    <li>Real-world examples in both perspectives</li>
+                    <li>Examples linked back to theory</li>
+                    <li>Conclusion answers the question directly</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>📖 Referencing</h3>
+                <ul class="checklist">
+                    <li>At least 5 reputable sources</li>
+                    <li>In-text citations throughout</li>
+                    <li>Direct quotes have page numbers</li>
+                    <li>Full stop AFTER citation, not before</li>
+                    <li>Reference list in Harvard format</li>
+                    <li>Reference list alphabetical</li>
+                    <li>No Wikipedia/GCSE sites</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card danger">
+            <h3>🚫 Academic Integrity — Final Check</h3>
+            <ul>
+                <li><strong>No AI used?</strong> (ChatGPT, Grammarly AI, etc.)</li>
+                <li><strong>Everything in your own words?</strong> Properly paraphrased?</li>
+                <li><strong>Nothing copied from slides, websites, or textbooks verbatim?</strong></li>
+                <li><strong>All references real and verified?</strong> Don't invent sources or page numbers.</li>
+            </ul>
+        </div>
+
+        <div class="card warn">
+            <h3>📊 Understanding Turnitin</h3>
+            <p><strong>What you see:</strong> Similarity % — how much matches other texts. Aim for under 20%.</p>
+            <p style="margin-top:8px;"><strong>What only your tutor sees:</strong> AI detection %. Both must be low. Write your own work.</p>
+        </div>
+
+        <div class="card" style="text-align:center; background: #2c2c2c; border:none; margin-top:20px;">
+            <h2 style="color:#e8734a; font-family:'DM Serif Display',serif;">Good Luck! 🎓</h2>
+            <p style="color:#fff; margin-top:10px;">Write in your own words. Cite everything. Answer the question directly.</p>
+            <p style="color:#c8c0b0; margin-top:10px; font-size:0.9em;">Questions? Contact your tutor or email academic@arucollege.com</p>
+        </div>
+    </div>
+
+</div><!-- end slide-area -->
+
+<!-- NAVIGATION -->
+<div class="navigation">
+    <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+    <div>
+        <div class="progress-dots" id="dots"></div>
+        <div class="slide-label" id="slideLabel">Slide 1 of 6</div>
+    </div>
+    <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+</div>
+```
+
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+```
+let current = 1;
+const total = 6;
+const labels = ['Overview','Essay Structure','Writing Guide','Referencing','Marking Criteria','Checklist'];
+
+const dotsContainer = document.getElementById('dots');
+for(let i=1;i<=total;i++){
+    const d = document.createElement('div');
+    d.className = 'dot' + (i===1?' active':'');
+    d.onclick = ()=>{ current=i; showSlide(); };
+    dotsContainer.appendChild(d);
+}
+
+function showSlide(){
+    if(current>total) current=total;
+    if(current<1) current=1;
+    document.querySelectorAll('.slide').forEach((s,i)=>{
+        s.classList.toggle('active', i===current-1);
+    });
+    document.querySelectorAll('.dot').forEach((d,i)=>{
+        d.classList.toggle('active', i===current-1);
+    });
+    document.getElementById('prevBtn').disabled = current===1;
+    document.getElementById('nextBtn').disabled = current===total;
+    document.getElementById('slideLabel').textContent = `Slide ${current} of ${total} — ${labels[current-1]}`;
+    window.scrollTo(0,0);
+}
+
+function changeSlide(n
+```
